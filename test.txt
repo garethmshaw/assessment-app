@@ -1,1 +1,2 @@
 Hello from VS Code 😎
+Added to text file from MacBook and comitted.
