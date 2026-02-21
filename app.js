@@ -15,6 +15,9 @@ async function loadStudents() {
         .from('students')
         .select('*');
 
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
+
     if (error) {
         document.getElementById("output").innerText = error.message;
         return;
