@@ -5,7 +5,11 @@ const SUPABASE_KEY = "sb_publishable_lRFfhZ7D3J10hSJIOuJ9qA_S20IJrG1";
 
 const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+document.getElementById("loadBtn").addEventListener("click", loadStudents);
+
 async function loadStudents() {
+
+    console.log("BUTTON CLICKED ✅");
 
     const { data, error } = await client
         .from('students')
