@@ -41,15 +41,9 @@ async function loadAssessments() {
 // ✅ LOAD RESULTS WHEN BUTTON CLICKED
 async function loadResults() {
 
+    console.log("BUTTON CLICKED ✅");
+
     const assessmentId = document.getElementById("assessmentSelect").value;
-
-    if (!assessmentId) {
-        document.getElementById("output").innerText =
-            "Please select an assessment";
-        return;
-    }
-
-    console.log("Loading results for:", assessmentId);
 
     const { data, error } = await client
         .from('results')
@@ -67,7 +61,36 @@ async function loadResults() {
         return;
     }
 
-    // Temporary raw display
-    document.getElementById("output").innerHTML =
-        data.map(r => `<p>${r.students.name} → ${r.correct}</p>`).join('');
+    // ✅ SCORE CALCULATION
+    const scores = {};
+
+    data.forEach(r => {
+
+        const name = r.students.name;
+
+        if (!scores[name]) {
+            scores[name] = { correct: 0, total: 0 };
+        }
+
+        scores[name].total++;
+
+        if (r.correct) {
+            scores[name].correct++;
+        }
+    });
+
+    // ✅ DISPLAY
+    let html = "<h3>Scores</h3>";
+
+    for (const student in scores) {
+
+        const s = scores[student];
+
+        html += `<p>
+            <strong>${student}</strong>: 
+            ${s.correct} / ${s.total}
+        </p>`;
+    }
+
+    document.getElementById("output").innerHTML = html;
 }
