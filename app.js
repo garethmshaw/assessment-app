@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM READY ✅");
 
     const SUPABASE_URL = "https://kzdfqzcogbittkobupem.supabase.co";
-    const SUPABASE_KEY = "sb_publishable_YOUR_KEY";
+    const SUPABASE_KEY = "sb_publishable_lRFfhZ7D3J10hSJIOuJ9qA_S20IJrG1";
 
     const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
