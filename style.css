@@ -1,16 +1,13 @@
+:root {
+    color-scheme: light;
+}
+
 select {
     font-size: 16px;
     padding: 8px;
     margin: 10px 0;
     width: 250px;
-    background: white;
-    color: black;
-    border-radius: 6px;
-}
 
-/* THIS is what you're missing */
-
-option {
-    background: white;
+    background-color: white;
     color: black;
 }
