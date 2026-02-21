@@ -1,8 +1,5 @@
 console.log("APP.JS LOADED");
-const SUPABASE_URL = "https://kzdfqzcogbittkobupem.supabase.co";
-const SUPABASE_KEY = "sb_publishable_lRFfhZ7D3J10hSJIOuJ9qA_S20IJrG1";
-
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabase = window.supabase.createClient( https://kzdfqzcogbittkobupem.supabase.co,sb_publishable_lRFfhZ7D3J10hSJIOuJ9qA_S20IJrG1);
 
 async function loadStudents() {
 
