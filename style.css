@@ -7,3 +7,10 @@ select {
     color: black;
     border-radius: 6px;
 }
+
+/* THIS is what you're missing */
+
+option {
+    background: white;
+    color: black;
+}
