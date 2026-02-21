@@ -1,28 +1,34 @@
-console.log("CLEAN VERSION LOADED ✅");
+console.log("APP INITIALIZING 🚀");
 
-const SUPABASE_URL = "https://kzdfqzcogbittkobupem.supabase.co";
-const SUPABASE_KEY = "sb_publishable_lRFfhZ7D3J10hSJIOuJ9qA_S20IJrG1";
+document.addEventListener("DOMContentLoaded", () => {
 
-const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    console.log("DOM READY ✅");
 
-document.getElementById("loadBtn").addEventListener("click", loadStudents);
+    const SUPABASE_URL = "https://kzdfqzcogbittkobupem.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_YOUR_KEY";
 
-async function loadStudents() {
+    const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    console.log("BUTTON CLICKED ✅");
+    const btn = document.getElementById("loadBtn");
 
-    const { data, error } = await client
-        .from('students')
-        .select('*');
+    btn.addEventListener("click", async () => {
 
-    console.log("DATA:", data);
-    console.log("ERROR:", error);
+        console.log("BUTTON CLICKED ✅");
 
-    if (error) {
-        document.getElementById("output").innerText = error.message;
-        return;
-    }
+        const { data, error } = await client
+            .from('students')
+            .select('*');
 
-    document.getElementById("output").innerHTML =
-        data.map(s => `<p>${s.name}</p>`).join('');
-}
+        console.log("DATA:", data);
+        console.log("ERROR:", error);
+
+        if (error) {
+            document.getElementById("output").innerText = error.message;
+            return;
+        }
+
+        document.getElementById("output").innerHTML =
+            data.map(s => `<p>${s.name}</p>`).join('');
+    });
+
+});
